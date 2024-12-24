@@ -71,7 +71,7 @@ const Login = ({ setAuth }) => {
         <p className="mt-4 text-center">
           Don't have an account?{" "}
           <span
-            className="text-blue-500 cursor-pointer"
+            className="text-blue-500 cursor-pointer "
             onClick={() => navigate("/signup")}
           >
             Sign Up
