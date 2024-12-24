@@ -21,7 +21,7 @@ function DataEntryForm({ fetchEntries }) {
     }
 
     try {
-      await axios.post("http://localhost:5000/api/entries", { name, description });
+      await axios.post("/api/entries", { name, description });
       setFormData({ name: "", description: "" }); // Reset form after successful submission
       if (fetchEntries) fetchEntries(); // Refresh data if fetchEntries is provided
     } catch (err) {

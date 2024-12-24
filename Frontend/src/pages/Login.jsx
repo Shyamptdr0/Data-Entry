@@ -12,7 +12,7 @@ const Login = ({ setAuth }) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:5000/api/auth/login", {
+      const response = await axios.post("/api/auth/login", {
         email,
         password,
       });
