@@ -27,7 +27,7 @@ app.listen(port, () => {
 });
 
 const path=require("path");
-app.use(express.static('frontend/build'));
+app.use(express.static('Frontend/dist'));
  app.get('*', (req, res) => {
-    res.sendFile(path.resolve('frontend','build','index.html'));
+    res.sendFile(path.resolve('Frontend','dist','index.html'));
 });
