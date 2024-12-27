@@ -28,6 +28,7 @@ const Login = ({ setAuth }) => {
       }
     } catch (err) {
       setError(err.response?.data?.message || "Error during login. Please try again.");
+      console.log(error)
     }
   };
 
