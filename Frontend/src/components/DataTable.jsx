@@ -8,7 +8,7 @@ function DataTable({ entries, fetchEntries }) {
   const handleDelete = async (id) => {
     if (window.confirm("Are you sure you want to delete this entry?")) {
       try {
-        await axios.delete(`http://localhost:5000/api/entries/${id}`);
+        await axios.delete(`http://localhost:8080/api/entries/${id}`);
         fetchEntries(); // Refresh entries after deletion
       } catch (err) {
         console.error("Failed to delete entry:", err.message);
