@@ -11,7 +11,7 @@ const UpdateEntry = ({ fetchEntries }) => {
   useEffect(() => {
     const fetchEntry = async () => {
       try {
-        const response = await axios.get(`/api/entries/${id}`);
+        const response = await axios.get(`http://localhost:5000/api/entries/${id}`);
         setEntry(response.data);
       } catch (err) {
         setError("Failed to fetch entry. Please try again later.");
@@ -24,7 +24,7 @@ const UpdateEntry = ({ fetchEntries }) => {
   const handleUpdate = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`/api/entries/${id}`, entry);
+      await axios.put(`http://localhost:5000/api/entries/${id}`, entry);
       if (fetchEntries) fetchEntries(); // Refresh the entries list
       navigate("/overview"); // Redirect to the desired page after updating
     } catch (err) {
