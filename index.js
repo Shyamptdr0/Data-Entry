@@ -8,7 +8,7 @@ const authRoutes = require('./routes/auth');
 const app = express();
 const port = process.env.PORT || 8080;
 const corsOptions = {
-  origin: [ "http://localhost:5173"],
+  origin: ["https://capital-q-tech-services.netlify.app", "http://localhost:5173"],
   credentials: true, // Allow credentials such as cookies to be sent
 };
 
