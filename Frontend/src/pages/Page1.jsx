@@ -4,6 +4,7 @@ import axios from 'axios';
 import DataEntryForm from "../components/DataEntryForm";
 import DataTable from "../components/DataTable";
 import UpdateEntry from "../components/UpdateEntry";
+const apiUrl = import.meta.env.VITE_API_URL;
 
 const Page1 = () => {
   const [entries, setEntries] = useState([]);
@@ -12,7 +13,7 @@ const Page1 = () => {
 
   const fetchEntries = async () => {
     try {
-      const response = await axios.get('http://localhost:8080/api/entries');
+      const response = await axios.get(`${apiUrl}/entries`);
       setEntries(response.data);
     } catch (err) {
       console.error('Failed to fetch entries:', err.message);

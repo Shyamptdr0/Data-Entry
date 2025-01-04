@@ -1,6 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+const apiUrl = import.meta.env.VITE_API_URL;
+
 
 function DataTable({ entries, fetchEntries }) {
   const navigate = useNavigate();
@@ -8,7 +10,7 @@ function DataTable({ entries, fetchEntries }) {
   const handleDelete = async (id) => {
     if (window.confirm("Are you sure you want to delete this entry?")) {
       try {
-        await axios.delete(`http://localhost:8080/api/entries/${id}`);
+        await axios.delete(`${apiUrl}/entries/${id}`);
         fetchEntries(); // Refresh entries after deletion
       } catch (err) {
         console.error("Failed to delete entry:", err.message);

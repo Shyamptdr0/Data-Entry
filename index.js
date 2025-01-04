@@ -7,9 +7,13 @@ const authRoutes = require('./routes/auth');
 
 const app = express();
 const port = process.env.PORT || 8080;
+const corsOptions = {
+  origin: [ "http://localhost:5173"],
+  credentials: true, // Allow credentials such as cookies to be sent
+};
 
 // Middleware
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 
 app.use("/api/auth", authRoutes); 

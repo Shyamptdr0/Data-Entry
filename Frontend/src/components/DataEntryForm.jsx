@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+const apiUrl = import.meta.env.VITE_API_URL;
 
 function DataEntryForm({ fetchEntries }) {
   const [formData, setFormData] = useState({ name: "", description: "" });
@@ -21,7 +22,8 @@ function DataEntryForm({ fetchEntries }) {
     }
 
     try {
-      await axios.post('http://localhost:8080/api/entries', { name, description });
+
+      await axios.post(`${apiUrl}/entries`, { name, description });
       setFormData({ name: "", description: "" }); // Reset form after successful submission
       if (fetchEntries) fetchEntries(); // Refresh data if fetchEntries is provided
     } catch (err) {

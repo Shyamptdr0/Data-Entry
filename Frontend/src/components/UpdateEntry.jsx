@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+const apiUrl = import.meta.env.VITE_API_URL;
+
 
 const UpdateEntry = ({ fetchEntries }) => {
   const { id } = useParams(); // Extract entry ID from the URL
@@ -11,7 +13,7 @@ const UpdateEntry = ({ fetchEntries }) => {
   useEffect(() => {
     const fetchEntry = async () => {
       try {
-        const response = await axios.get(`http://localhost:8080/api/entries/${id}`);
+        const response = await axios.get(`${apiUrl}/entries/${id}`);
         setEntry(response.data);
       } catch (err) {
         setError("Failed to fetch entry. Please try again later.");
@@ -24,7 +26,7 @@ const UpdateEntry = ({ fetchEntries }) => {
   const handleUpdate = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:8080/api/entries/${id}`, entry);
+      await axios.put(`${apiUrl}/entries/${id}`, entry);
       if (fetchEntries) fetchEntries(); // Refresh the entries list
       navigate("/overview"); // Redirect to the desired page after updating
     } catch (err) {

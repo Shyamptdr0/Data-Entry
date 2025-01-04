@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+const apiUrl = import.meta.env.VITE_API_URL;
 
 const Login = ({ setAuth }) => {
   const [email, setEmail] = useState("");
@@ -12,7 +13,7 @@ const Login = ({ setAuth }) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:8080/api/auth/login", {
+      const response = await axios.post(`${apiUrl}/auth/login`, {
         email,
         password,
       });
@@ -28,7 +29,7 @@ const Login = ({ setAuth }) => {
       }
     } catch (err) {
       setError(err.response?.data?.message || "Error during login. Please try again.");
-      console.log(error)
+      console.log(err)
     }
   };
 
