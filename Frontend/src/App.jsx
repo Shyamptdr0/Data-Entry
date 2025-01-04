@@ -14,7 +14,7 @@ import {
   faTimes,
 } from "@fortawesome/free-solid-svg-icons";
 import UpdateEntry from "./components/UpdateEntry";
-import ContactUs from "./pages/Contactus";
+import ContactUs from "./pages/ContactUs";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 
