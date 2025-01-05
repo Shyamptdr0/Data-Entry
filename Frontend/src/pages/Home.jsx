@@ -3,7 +3,7 @@ import React from 'react'
 const Home = () => {
   return (
     <div>
-      <div><img src="../../public/Capital Q Tech Services 1.jpg" alt="" /></div>
+      <div><img src="Capital Q Tech Services 1.jpg" alt="" /></div>
       <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
       <header className="bg-blue-600 text-white py-16 text-center">
@@ -69,7 +69,7 @@ const Home = () => {
             Email: <a href="mailto:info@capitalqtech.com" className="underline">info@capitalqtech.com</a>
           </p>
           <p className="text-lg">
-            Phone: <a href="tel:+1234567890" className="underline">+1 234-567-890</a>
+            Phone: <a href="tel:+918120465205" className="underline">+91 81204-65205 </a>
           </p>
         </div>
       </section>
@@ -77,7 +77,7 @@ const Home = () => {
       {/* Footer */}
       <footer className="bg-gray-800 text-white py-4 text-center">
         <p className="text-sm">
-          © 2024 Capital Q Tech Services. All Rights Reserved.
+          Capital Q Tech Services. All Rights Reserved.
         </p>
       </footer>
     </div>

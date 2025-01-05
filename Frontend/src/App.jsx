@@ -17,6 +17,7 @@ import UpdateEntry from "./components/UpdateEntry";
 import ContactUs from "./pages/ContactUs";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import Profile from "./pages/Profile";
 
 const App = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -110,6 +111,7 @@ const App = () => {
               <Route path="/entry" element={<PrivateRoute element={<Page1 />} />} />
               <Route path="/overview" element={<PrivateRoute element={<Page2 />} />} />
               <Route path="/contact" element={<PrivateRoute element={<ContactUs />} />} />
+              {/* <Route path="/profile" element={<PrivateRoute element={<Profile />} />} /> */}
             </Routes>
           </div>
         </div>
