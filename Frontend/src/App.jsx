@@ -43,7 +43,8 @@ const App = () => {
       <div className="flex h-screen overflow-hidden">
         {/* Sidebar */}
         <div
-          className={`fixed h-full bg-blue-500 transition-transform transform ${
+          className={`fixed h-full bg-blue-500 transition-transform transform 
+            ${
             isSidebarOpen ? "translate-x-0" : "-translate-x-full"
           } md:translate-x-0 w-[100px] pt-[7rem]  flex flex-col items-center space-y-4`}
         >
@@ -111,7 +112,7 @@ const App = () => {
               <Route path="/entry" element={<PrivateRoute element={<Page1 />} />} />
               <Route path="/overview" element={<PrivateRoute element={<Page2 />} />} />
               <Route path="/contact" element={<PrivateRoute element={<ContactUs />} />} />
-              {/* <Route path="/profile" element={<PrivateRoute element={<Profile />} />} /> */}
+              <Route path="/profile" element={<PrivateRoute element={<Profile />} />} />
             </Routes>
           </div>
         </div>

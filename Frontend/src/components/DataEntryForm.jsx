@@ -57,7 +57,7 @@ function DataEntryForm({ fetchEntries }) {
           {/* Name Input */}
           <div>
             <label htmlFor="name" className="block text-gray-600 font-medium mb-1">
-              Name <span className="text-red-500">*</span>
+              Name 
             </label>
             <input
               type="text"
@@ -82,7 +82,7 @@ function DataEntryForm({ fetchEntries }) {
               value={formData.description}
               onChange={handleChange}
               className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="Enter description (optional)"
+              placeholder="Enter description"
               rows="4"
             ></textarea>
           </div>

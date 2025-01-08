@@ -2,7 +2,6 @@ const express = require('express');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
-const Entry = require('../models/Entry');
 const router = express.Router();
 
 // Signup route
@@ -26,13 +25,6 @@ router.post('/signup', async (req, res) => {
     // Create a new user
     const user = new User({ name, email, password: hashedPassword });
     await user.save();
-
-    // Create default entries for the new user
-    const defaultEntries = [
-      { name: 'Default Entry 1', description: 'First entry for new user', userId: user._id },
-      { name: 'Default Entry 2', description: 'Second entry for new user', userId: user._id },
-    ];
-    await Entry.insertMany(defaultEntries);
 
     res.status(201).json({ message: 'User created successfully', user });
   } catch (err) {

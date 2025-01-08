@@ -1,13 +1,28 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { useEntries } from '../pages/useEntries';
+import axios from 'axios';
+import DataEntryForm from "../components/DataEntryForm";
 import DataTable from "../components/DataTable";
 import UpdateEntry from "../components/UpdateEntry";
+const apiUrl = import.meta.env.VITE_API_URL;
 
 const Page2 = () => {
-  const { entries, fetchEntries } = useEntries(); // Custom hook
+  const [entries, setEntries] = useState([]);
   const navigate = useNavigate();
-  const { id } = useParams(); // Check if an entry is being updated
+  const { id } = useParams();
+
+  const fetchEntries = async () => {
+    try {
+      const response = await axios.get(`${apiUrl}/entries`);
+      setEntries(response.data);
+    } catch (err) {
+      console.error('Failed to fetch entries:', err.message);
+    }
+  };
+
+  useEffect(() => {
+    fetchEntries();
+  }, []);
 
   const handleEditClick = (entry) => {
     navigate(`/update/${entry._id}`);
@@ -16,14 +31,16 @@ const Page2 = () => {
   return (
     <div className="p-6">
       {id ? (
-        <UpdateEntry fetchEntries={fetchEntries} entryId={id} />
-      ) : (
-        <DataTable
-          entries={entries}
-          fetchEntries={fetchEntries}
-          onEditClick={handleEditClick}
-        />
-      )}
+  <UpdateEntry
+    fetchEntries={fetchEntries} // Ensure this is passed
+  />
+) : (
+  <>
+    {/* <DataEntryForm fetchEntries={fetchEntries} /> */}
+    <DataTable entries={entries} fetchEntries={fetchEntries} onEditClick={handleEditClick} />
+  </>
+)}
+
     </div>
   );
 };
