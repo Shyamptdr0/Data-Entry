@@ -5,11 +5,13 @@ const apiUrl = import.meta.env.VITE_API_URL;
 function DataEntryForm({ fetchEntries }) {
   const [formData, setFormData] = useState({ name: "", description: "" });
   const [error, setError] = useState("");
+  const [successMessage, setSuccessMessage] = useState(""); // New state for success message
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
     setError(""); // Clear error on input
+    setSuccessMessage(""); // Clear success message on input change
   };
 
   const handleSubmit = async (e) => {
@@ -22,9 +24,15 @@ function DataEntryForm({ fetchEntries }) {
     }
 
     try {
-
       await axios.post(`${apiUrl}/entries`, { name, description });
       setFormData({ name: "", description: "" }); // Reset form after successful submission
+      setSuccessMessage("Entry successfully added!"); // Set success message
+
+      // Automatically hide the success message after 3 seconds
+      setTimeout(() => {
+        setSuccessMessage(""); // Clear success message
+      }, 3000);
+
       if (fetchEntries) fetchEntries(); // Refresh data if fetchEntries is provided
     } catch (err) {
       setError("Failed to submit entry. Please try again.");
@@ -48,6 +56,13 @@ function DataEntryForm({ fetchEntries }) {
           cutting-edge tools, our services guarantee quality and satisfaction.
         </p>
       </section>
+
+      {/* Success Message */}
+      {successMessage && (
+        <div className="bg-green-500 text-white py-2 px-4 rounded-lg mb-6">
+          {successMessage}
+        </div>
+      )}
 
       {/* Form Section */}
       <section>

@@ -99,7 +99,7 @@ const ContactUs = () => {
       {/* Contact Details */}
       <div className="mt-12 text-center text-gray-700">
         <h2 className="text-2xl font-semibold mb-4">Contact Information</h2>
-        <p>Email: <a href="mailto:info@capitalqtech.com" className="text-blue-600 underline">info@capitalqtech.com</a></p>
+        <p>Email: <a href="mailto:capitalqtech@gmail.com" className="text-blue-600 underline">capitalqtech@gmail.com</a></p>
         Phone: <a href="tel:+918120465205" className="underline">+91 81204-65205 </a>
         <p>Address: 109/7, 3rd Floor, 20th Main Road, 5th Block, <br></br> West Of Chord Road, Rajajinagar, Bengaluru, Karnataka 560079</p>
       </div>

@@ -7,6 +7,7 @@ const Login = ({ setAuth }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
+  const [successMessage, setSuccessMessage] = useState(""); // New state for success message
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
@@ -26,11 +27,19 @@ const Login = ({ setAuth }) => {
         // Set authentication state and navigate to home page
         setAuth(true);
         navigate("/");
+
+        // Set success message
+        setSuccessMessage("Login successful!");
+
+        // Automatically hide the success message after 3 seconds
+        setTimeout(() => {
+          setSuccessMessage(""); // Clear success message
+        }, 3000);
       }
     } catch (err) {
       setError(err.response?.data?.message || "Error during login. Please try again.");
-      console.log(err)
-      console.log(err.message)
+      console.log(err);
+      console.log(err.message);
     }
   };
 
@@ -38,7 +47,16 @@ const Login = ({ setAuth }) => {
     <div className="flex justify-center items-center h-screen bg-gray-100">
       <div className="w-full max-w-sm bg-white p-6 rounded-lg shadow-md">
         <h2 className="text-2xl font-bold mb-4 text-center">Login</h2>
+        
+        {/* Display success message */}
+        {successMessage && (
+          <div className="bg-green-500 text-white py-2 px-4 rounded-lg mb-4 text-center">
+            {successMessage}
+          </div>
+        )}
+
         {error && <p className="text-red-500 text-center">{error}</p>}
+
         <form onSubmit={handleLogin}>
           <div className="mb-4">
             <label className="block text-gray-700" htmlFor="email">Email</label>
@@ -74,7 +92,7 @@ const Login = ({ setAuth }) => {
         <p className="mt-4 text-center">
           Don't have an account?{" "}
           <span
-            className="text-blue-500 cursor-pointer "
+            className="text-blue-500 cursor-pointer"
             onClick={() => navigate("/signup")}
           >
             Sign Up

@@ -25,9 +25,14 @@ const Header = () => {
 
   return (
     <div>
-      <div className=' pt-0  bg-gray-200 border-r-4 flex justify-between items-center relative'>
-        <h1 className='pl-2 font-bold text-black'>Capital Q Tech Services</h1>
-        <img src="/Capital Q Tech Services   3logo.jpg" alt="" className='w-[100px] h-[70px] pt-2 pr-10' />
+      <div className='pt-0 bg-gray-200 border-r-4 flex justify-between items-center relative'>
+        {/* Logo visible on all screens */}
+        <img src="/Capital Q Tech Services   3logo.jpg" alt="Logo" className='w-[100px] h-[70px] pt-2 pr-10' />
+        
+        {/* Text displayed on medium and larger screens, hidden on smaller screens */}
+        <h1 className='hidden md:block pl-2 font-bold text-black'>Capital Q Tech Services</h1>
+
+        {/* User profile icon */}
         <div className='relative'>
           <FontAwesomeIcon
             icon={faCircleUser}

@@ -66,7 +66,7 @@ const Home = () => {
             business needs.
           </p>
           <p className="text-lg">
-            Email: <a href="mailto:info@capitalqtech.com" className="underline">info@capitalqtech.com</a>
+            Email: <a href="mailto:capitalqtech@gmail.com" className="underline">capitalqtech@gmail.com</a>
           </p>
           <p className="text-lg">
             Phone: <a href="tel:+918120465205" className="underline">+91 81204-65205 </a>
