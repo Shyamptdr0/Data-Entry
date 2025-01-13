@@ -55,12 +55,12 @@ function DataTable({ entries, fetchEntries }) {
                   className="border-t hover:bg-gray-100 transition duration-300"
                 >
                   {/* Name Column */}
-                  <td className="px-4 py-2 break-words">
+                  <td className="px-4 py-2 break-words whitespace-pre-wrap">
                     {entry.name}
                   </td>
-                  
+
                   {/* Description Column */}
-                  <td className="px-4 py-2 break-words">
+                  <td className="px-4 py-2 break-words whitespace-pre-wrap">
                     {entry.description}
                   </td>
 
