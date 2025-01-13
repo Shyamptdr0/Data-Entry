@@ -33,7 +33,7 @@ const Header = () => {
         <h1 className='hidden md:block pl-2 font-bold text-black'>Capital Q Tech Services</h1>
 
         {/* User profile icon */}
-        <div className='relative'>
+        {/* <div className='relative'>
           <FontAwesomeIcon
             icon={faCircleUser}
             size="2x"
@@ -44,12 +44,12 @@ const Header = () => {
             <div className='absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-10'>
               <ul className='py-1'>
                 <li>
-                  {/* <button 
+                  <button 
                     className='block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100'
                     onClick={goToProfile}
                   >
                     Profile Settings
-                  </button> */}
+                  </button> 
                 </li>
                 <li>
                   <button 
@@ -62,7 +62,7 @@ const Header = () => {
               </ul>
             </div>
           )}
-        </div>
+        </div> */}
       </div>
     </div>
   );

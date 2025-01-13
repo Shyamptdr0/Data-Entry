@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const entrySchema = new mongoose.Schema({
   id:{type: Number},
   name: { type: String, required: true },
-  description: { type: String },
+  description: { type: String, required: true },
   date: { type: Date, default: Date.now }
 });
 

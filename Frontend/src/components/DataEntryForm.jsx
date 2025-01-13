@@ -6,17 +6,20 @@ function DataEntryForm({ fetchEntries }) {
   const [formData, setFormData] = useState({ name: "", description: "" });
   const [error, setError] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
+  const [infoMessage, setInfoMessage] = useState(""); // For paste alert
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
     setError("");
     setSuccessMessage("");
+    setInfoMessage("");
   };
 
   const handlePaste = (event) => {
     event.preventDefault();
-    alert("Pasting content is disabled!");
+    setInfoMessage("Pasting content is disabled!");
+    setTimeout(() => setInfoMessage(""), 3000); // Clear the message after 3 seconds
   };
 
   const handleSubmit = async (e) => {
@@ -60,15 +63,29 @@ function DataEntryForm({ fetchEntries }) {
         </p>
       </section>
 
+      {/* Success Message */}
       {successMessage && (
         <div className="bg-green-500 text-white py-2 px-4 rounded-lg mb-6">
           {successMessage}
         </div>
       )}
 
+      {/* Error Message */}
+      {error && (
+        <div className="bg-red-500 text-white py-2 px-4 rounded-lg mb-6">
+          {error}
+        </div>
+      )}
+
+      {/* Information Message */}
+      {infoMessage && (
+        <div className="bg-yellow-500 text-black py-2 px-4 rounded-lg mb-6">
+          {infoMessage}
+        </div>
+      )}
+
       <section>
         <h2 className="text-2xl font-semibold text-gray-700 mb-4">Add New Entry</h2>
-        {error && <p className="text-red-600 text-sm mb-4">{error}</p>}
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label htmlFor="name" className="block text-gray-600 font-medium mb-1">
@@ -100,6 +117,7 @@ function DataEntryForm({ fetchEntries }) {
               className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
               placeholder="Enter description"
               rows="4"
+              required
             ></textarea>
           </div>
 
